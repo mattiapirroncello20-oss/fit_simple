@@ -22,6 +22,7 @@ jobs:
           rm -rf app/lib
           cp -r src/fit_simple/lib app/lib
           cp src/fit_simple/pubspec.yaml app/pubspec.yaml
+          sed -i "1a import '../core/models.dart';" app/lib/ui/plan_screen.dart
           sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 26/' app/android/app/build.gradle.kts || true
           sed -i 's/minSdkVersion flutter.minSdkVersion/minSdkVersion 26/' app/android/app/build.gradle || true
           f=$(find app/android -name MainActivity.kt)
